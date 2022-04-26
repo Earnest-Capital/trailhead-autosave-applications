@@ -112,6 +112,7 @@ setupAutosaveField("#demo-screencast-link", validateUrl, "Demo Screencast","demo
 setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#messageresult-deck-link");
 setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your product live in the market?","is-your-product-live-in-the-market", "#messageresult-is-your-product-live-in-the-market");
 setupAutosaveField("#referrer", null, "Referred by","referred-by", "#messageresult-referred-by");
+setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#messageresult-country-of-incorporation");
 
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#messageresult-key-metrics");
@@ -125,6 +126,7 @@ setupAutosaveField("#Links-To-Your-Work", null, "Links to your work","links-to-y
 setupAutosaveField("#Market-Size", null, "Market Size","market-size", "#messageresult-market-size");
 setupAutosaveField("#Average-Revenue-per-Customer", null, "Average Revenue per Customer","average-revenue-per-customer", "#messageresult-average-revenue-per-customer");
 setupAutosaveField("#Pricing-Model", validateName, "Pricing Model","pricing-model", "#messageresult-pricing-model");
+setupAutosaveField("#customer-acquisition-sources", validateName, "Customer Acquisition Sources","customer-acquisition-sources", "#messageresult-customer-acquisition-sources");
 
 // competition
 setupAutosaveField("#Competition-Positioning", validateName, "Competition & Positioning","competition-positioning", "#messageresult-competition-positioning");
