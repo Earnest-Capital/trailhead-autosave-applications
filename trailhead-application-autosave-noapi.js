@@ -72,12 +72,12 @@ if (!fieldMetrics.value)
 }
 else
 {
-  document.querySelector(statusTextComplete).innerHTML= "Complete";
-  document.querySelector(statusTextIncomplete).style.display = "none";
-  document.querySelector(statusTextComplete).style.display = "block";
-}
-
-}
+        document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+        document.querySelector(statusTextIncomplete).style.display = "none";
+        document.querySelector(statusTextComplete).style.display = "block";
+      }
+ 
+      }
 
 function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webflowField, messageResultSelector) {
     const field = document.querySelector(fieldSelector);
