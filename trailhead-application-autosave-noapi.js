@@ -108,9 +108,9 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             console.log('saved field in Webflow', webflowField, result);
             document.querySelector(messageResultSelector).innerHTML = 'Saved!';
             // status check: product & value proposition status check
-            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","status-productvalue-incomplete","status-productvalue-complete");
+            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
             // status check: traction & metrics
-            statusTractionMetrics("#Key-Metrics","status-tractionmetrics-incomplete","status-tractionmetrics-complete");
+            statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -158,13 +158,13 @@ setupAutosaveField("#referrer", null, "Referred by","referred-by", "#messageresu
 setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#messageresult-country-of-incorporation");
 
 // status check: product & value proposition status check
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","status-productvalue-incomplete","status-productvalue-complete");
+statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
 
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#messageresult-key-metrics");
 
 // status check: traction & metrics
-statusTractionMetrics("#Key-Metrics","status-tractionmetrics-incomplete","status-tractionmetrics-complete");
+statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
 
 // my team
 setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#messageresult-founder-team-background");
