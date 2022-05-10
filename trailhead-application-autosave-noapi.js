@@ -46,12 +46,14 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive, s
       {
         document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
         document.querySelector(statusTextComplete).style.display = "none";
+        document.querySelector(statusTextIncomplete).style.display = "block";
  
       }
  else
       {
         document.querySelector(statusTextComplete).innerHTML= "Complete";
         document.querySelector(statusTextIncomplete).style.display = "none";
+        document.querySelector(statusTextComplete).style.display = "block";
       }
  
       }
@@ -66,11 +68,13 @@ if (!fieldMetrics.value)
 {
   document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
   document.querySelector(statusTextComplete).style.display = "none";
+  document.querySelector(statusTextIncomplete).style.display = "block";
 }
 else
 {
   document.querySelector(statusTextComplete).innerHTML= "Complete";
   document.querySelector(statusTextIncomplete).style.display = "none";
+  document.querySelector(statusTextComplete).style.display = "block";
 }
 
 }
