@@ -44,14 +44,14 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive, s
         
  if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
       {
-        document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
+        document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
         document.querySelector(statusTextComplete).style.display = "none";
         document.querySelector(statusTextIncomplete).style.display = "block";
  
       }
  else
       {
-        document.querySelector(statusTextComplete).innerHTML= "Complete";
+        document.querySelector(statusTextComplete).innerHTML= "[Complete]";
         document.querySelector(statusTextIncomplete).style.display = "none";
         document.querySelector(statusTextComplete).style.display = "block";
       }
@@ -66,12 +66,108 @@ function statusTractionMetrics(inputMetrics, statusTextIncomplete, statusTextCom
   
 if (!fieldMetrics.value) 
 {
-  document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
+  document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
   document.querySelector(statusTextComplete).style.display = "none";
   document.querySelector(statusTextIncomplete).style.display = "block";
 }
 else
 {
+  document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+  document.querySelector(statusTextIncomplete).style.display = "none";
+  document.querySelector(statusTextComplete).style.display = "block";
+}
+
+}
+
+// create function: status update - my team
+function statusTeam(inputTeamBackground, inputUnfairAdvantage, statusTextIncomplete, statusTextComplete)
+      {
+        var fieldTeamBackground = document.querySelector(inputTeamBackground);
+        
+        var fieldUnfairAdvantage = document.querySelector(inputUnfairAdvantage);
+
+        
+ if (!fieldTeamBackground.value || !fieldUnfairAdvantage.value) 
+      {
+        document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+        document.querySelector(statusTextComplete).style.display = "none";
+        document.querySelector(statusTextIncomplete).style.display = "block";
+ 
+      }
+ else
+      {
+        document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+        document.querySelector(statusTextIncomplete).style.display = "none";
+        document.querySelector(statusTextComplete).style.display = "block";
+      }
+ 
+      }
+
+      // create function: status update - pricing & customers
+function statusPricing(inputPricingModel, inputCustomerSources, statusTextIncomplete, statusTextComplete)
+{
+  var fieldPricingModel = document.querySelector(inputPricingModel);
+  
+  var fieldCustomerSources = document.querySelector(inputCustomerSources);
+
+  
+if (!fieldPricingModel.value || !fieldCustomerSources.value) 
+{
+  document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+  document.querySelector(statusTextComplete).style.display = "none";
+  document.querySelector(statusTextIncomplete).style.display = "block";
+
+}
+else
+{
+  document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+  document.querySelector(statusTextIncomplete).style.display = "none";
+  document.querySelector(statusTextComplete).style.display = "block";
+}
+
+}
+
+// create function: status update - competition
+function statusCompetition(inputCompetition, statusTextIncomplete, statusTextComplete)
+{
+  var fieldCompetition = document.querySelector(inputCompetition);
+  
+  
+if (!fieldCompetition.value) 
+{
+  document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+  document.querySelector(statusTextComplete).style.display = "none";
+  document.querySelector(statusTextIncomplete).style.display = "block";
+}
+else
+{
+  document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+  document.querySelector(statusTextIncomplete).style.display = "none";
+  document.querySelector(statusTextComplete).style.display = "block";
+}
+
+}
+
+// create function: status update - fundraising
+function statusFundraising(inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital, statusTextIncomplete, statusTextComplete)
+      {
+        var fieldRaisingCapital = document.querySelector(inputRaisingCapital);
+        
+        var fieldRaising = document.querySelector(inputRaising);
+
+        var fieldRoundProcess = document.querySelector(inputRoundProcess);
+
+        var fieldPreviousCapital = document.querySelector(inputPreviousCapital);
+        
+ if (!fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value) 
+      {
+        document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+        document.querySelector(statusTextComplete).style.display = "none";
+        document.querySelector(statusTextIncomplete).style.display = "block";
+ 
+      }
+ else
+      {
         document.querySelector(statusTextComplete).innerHTML= "[Complete]";
         document.querySelector(statusTextIncomplete).style.display = "none";
         document.querySelector(statusTextComplete).style.display = "block";
@@ -114,10 +210,25 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
         .then(function (result) {
             console.log('saved field in Webflow', webflowField, result);
             document.querySelector(messageResultSelector).innerHTML = 'Saved!';
+           
             // status check: product & value proposition status check
             statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
+            
             // status check: traction & metrics
             statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
+
+            // status check: my team
+            statusTeam("#Founder-Team-Background","#Unfair-Advantage","#status-team-incomplete","#status-team-complete");
+
+            // status check: pricing & customers
+            statusPricing("#Pricing-Model","#customer-acquisition-sources","#status-pricing-incomplete","#status-pricing-complete");
+
+            // status check: competition
+            statusCompetition("#Competition-Positioning","#status-competition-incomplete","#status-competition-complete");
+
+           // status check: fundraising
+           statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
+
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -164,14 +275,9 @@ setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your
 setupAutosaveField("#referrer", null, "Referred by","referred-by", "#messageresult-referred-by");
 setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#messageresult-country-of-incorporation");
 
-// status check: product & value proposition status check
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
 
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#messageresult-key-metrics");
-
-// status check: traction & metrics
-statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
 
 // my team
 setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#messageresult-founder-team-background");
@@ -194,3 +300,22 @@ setupAutosaveField("#Round-Process", validateName, "Round / Process","round-proc
 setupAutosaveField("#Previous-Capital-Raised", validateName, "Previous Capital Raised","previous-capital-raised", "#messageresult-previous-capital-raised");
 setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-legal-name", "#messageresult-company-legal-name");
 
+// check status per exercise
+
+// status check: product & value proposition
+statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
+
+// status check: traction & metrics
+statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
+
+// status check: my team
+statusTeam("#Founder-Team-Background","#Unfair-Advantage","#status-team-incomplete","#status-team-complete");
+
+// status check: pricing & customers
+statusPricing("#Pricing-Model","#customer-acquisition-sources","#status-pricing-incomplete","#status-pricing-complete");
+
+// status check: competition
+statusCompetition("#Competition-Positioning","#status-competition-incomplete","#status-competition-complete");
+
+// status check: fundraising
+statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
