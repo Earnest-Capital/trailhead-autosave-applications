@@ -45,11 +45,13 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive, s
  if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
       {
         document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
+        document.querySelector(statusTextComplete).style.display = "none";
  
       }
  else
       {
         document.querySelector(statusTextComplete).innerHTML= "Complete";
+        document.querySelector(statusTextIncomplete).style.display = "none";
       }
  
       }
@@ -63,11 +65,12 @@ function statusTractionMetrics(inputMetrics, statusTextIncomplete, statusTextCom
 if (!fieldMetrics.value) 
 {
   document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
-
+  document.querySelector(statusTextComplete).style.display = "none";
 }
 else
 {
   document.querySelector(statusTextComplete).innerHTML= "Complete";
+  document.querySelector(statusTextIncomplete).style.display = "none";
 }
 
 }
