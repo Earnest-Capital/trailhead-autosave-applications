@@ -33,45 +33,6 @@ function validateUrl(inputUrl)
         }
 }
 
-// create function: status update - value & proposition
-function statusValueProposition(inputTagline, inputBusiness, inputProductLive, statusTextIncomplete, statusTextComplete)
-      {
-        var fieldTagline = document.querySelector(inputTagline);
-        
-        var fieldBusiness = document.querySelector(inputBusiness);
-
-        var fieldProductLive = document.querySelector(inputProductLive);
-        
- if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
-      {
-        document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
- 
-      }
- else
-      {
-        document.querySelector(statusTextComplete).innerHTML= "Complete";
-      }
- 
-      }
-
-      // create function: status update - traction & metrics
-function statusTractionMetrics(inputMetrics, statusTextIncomplete, statusTextComplete)
-{
-  var fieldMetrics = document.querySelector(inputMetrics);
-  
-  
-if (!fieldMetrics.value) 
-{
-  document.querySelector(statusTextIncomplete).innerHTML= "Incomplete";
-
-}
-else
-{
-  document.querySelector(statusTextComplete).innerHTML= "Complete";
-}
-
-}
-
 function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webflowField, messageResultSelector) {
     const field = document.querySelector(fieldSelector);
     console.log(field.value);
@@ -107,10 +68,6 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
         .then(function (result) {
             console.log('saved field in Webflow', webflowField, result);
             document.querySelector(messageResultSelector).innerHTML = 'Saved!';
-            // status check: product & value proposition status check
-            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","status-productvalue-incomplete","status-productvalue-complete");
-            // status check: traction & metrics
-            statusTractionMetrics("#Key-Metrics","status-tractionmetrics-incomplete","status-tractionmetrics-complete");
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -157,14 +114,8 @@ setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your
 setupAutosaveField("#referrer", null, "Referred by","referred-by", "#messageresult-referred-by");
 setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#messageresult-country-of-incorporation");
 
-// status check: product & value proposition status check
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","status-productvalue-incomplete","status-productvalue-complete");
-
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#messageresult-key-metrics");
-
-// status check: traction & metrics
-statusTractionMetrics("#Key-Metrics","status-tractionmetrics-incomplete","status-tractionmetrics-complete");
 
 // my team
 setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#messageresult-founder-team-background");
