@@ -69,16 +69,19 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
         //document.querySelector("#div-mobile-submit-application").style.display = "none";
         document.querySelector("#div-popup-submit-application").style.display = "none";
         //document.querySelector("#div-popupmobile-submit-application").style.display = "none";
-        document.querySelector("#div-application-notready").style.display = "flex";
+        document.querySelector("#container-div-application-notready").style.display = "block";
         //document.querySelector("#div-mobile-application-notready").style.display = "flex";
         document.querySelector("#div-popup-application-notready").style.display = "flex";
         //document.querySelector("#div-popupmobile-application-notready").style.display = "flex";
         //console.log("true");
+
+
+        
       }
  else
       {
         //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
-        document.querySelector("#div-application-notready").style.display = "none";
+        document.querySelector("#container-div-application-notready").style.display = "none";
         //document.querySelector("#div-mobile-application-notready").style.display = "none";
         document.querySelector("#div-popup-application-notready").style.display = "none";
         //document.querySelector("#div-popupmobile-application-notready").style.display = "none";
@@ -87,6 +90,7 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
         document.querySelector("#div-popup-submit-application").style.display = "flex";
         //document.querySelector("#div-popupmobile-submit-application").style.display = "flex";
         //console.log("false");
+       
       }
  
       }
