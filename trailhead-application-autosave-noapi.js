@@ -33,6 +33,52 @@ function validateUrl(inputUrl)
         }
 }
 
+// create function: show/hide submit application button
+function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,inputMetrics, inputTeamBackground, inputUnfairAdvantage, inputPricingModel, inputCustomerSources, inputCompetition, inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital, statusTextIncomplete, statusTextComplete)
+      {
+        var fieldTagline = document.querySelector(inputTagline);
+        
+        var fieldBusiness = document.querySelector(inputBusiness);
+
+        var fieldProductLive = document.querySelector(inputProductLive);
+
+        var fieldMetrics = document.querySelector(inputMetrics);
+
+        var fieldTeamBackground = document.querySelector(inputTeamBackground);
+        
+        var fieldUnfairAdvantage = document.querySelector(inputUnfairAdvantage);
+
+        var fieldPricingModel = document.querySelector(inputPricingModel);
+  
+        var fieldCustomerSources = document.querySelector(inputCustomerSources);
+
+        var fieldCompetition = document.querySelector(inputCompetition);
+
+        var fieldRaisingCapital = document.querySelector(inputRaisingCapital);
+        
+        var fieldRaising = document.querySelector(inputRaising);
+
+        var fieldRoundProcess = document.querySelector(inputRoundProcess);
+
+        var fieldPreviousCapital = document.querySelector(inputPreviousCapital);
+        
+ if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value) 
+      {
+        //document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+        document.querySelector(statusTextComplete).style.display = "none";
+        document.querySelector(statusTextIncomplete).style.display = "flex";
+ 
+      }
+ else
+      {
+        //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+        document.querySelector(statusTextIncomplete).style.display = "none";
+        document.querySelector(statusTextComplete).style.display = "flex";
+      }
+ 
+      }
+
+
 // create function: status update - value & proposition
 function statusValueProposition(inputTagline, inputBusiness, inputProductLive, statusTextIncomplete, statusTextComplete)
       {
@@ -226,9 +272,11 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             // status check: competition
             statusCompetition("#Competition-Positioning","#status-competition-incomplete","#status-competition-complete");
 
-           // status check: fundraising
-           statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
+            // status check: fundraising
+            statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
 
+            // status check: submit application
+            statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised",".div-application-notready",".div-submit-application");
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -319,3 +367,6 @@ statusCompetition("#Competition-Positioning","#status-competition-incomplete","#
 
 // status check: fundraising
 statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
+
+// status check: submit application
+statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised",".div-application-notready",".div-submit-application");
