@@ -34,7 +34,7 @@ function validateUrl(inputUrl)
 }
 
 // create function: show/hide submit application button
-function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,inputMetrics, inputTeamBackground, inputUnfairAdvantage, inputPricingModel, inputCustomerSources, inputCompetition, inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital, statusTextIncomplete, statusTextComplete)
+function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,inputMetrics, inputTeamBackground, inputUnfairAdvantage, inputPricingModel, inputCustomerSources, inputCompetition, inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital)
       {
         var fieldTagline = document.querySelector(inputTagline);
         
@@ -65,15 +65,15 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
  if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value) 
       {
         //document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
-        document.querySelector(statusTextComplete).style.display = "none";
-        document.querySelector(statusTextIncomplete).style.display = "flex";
- console.log("true");
+        document.querySelector("#div-submit-application").style.display = "none";
+        document.querySelector("#div-application-notready").style.display = "flex";
+        console.log("true");
       }
  else
       {
         //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
-        document.querySelector(statusTextIncomplete).style.display = "none";
-        document.querySelector(statusTextComplete).style.display = "flex";
+        document.querySelector("#div-application-notready").style.display = "none";
+        document.querySelector("#div-submit-application").style.display = "flex";
         console.log("false");
       }
  
@@ -277,7 +277,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
 
             // status check: submit application
-            statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised",".div-application-notready",".div-submit-application");
+            statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -370,4 +370,4 @@ statusCompetition("#Competition-Positioning","#status-competition-incomplete","#
 statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised","#status-fundraising-incomplete","#status-fundraising-complete");
 
 // status check: submit application
-statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised",".div-application-notready",".div-submit-application");
+statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
