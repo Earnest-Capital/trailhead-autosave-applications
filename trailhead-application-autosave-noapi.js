@@ -67,13 +67,14 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
         //document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
         document.querySelector(statusTextComplete).style.display = "none";
         document.querySelector(statusTextIncomplete).style.display = "flex";
- 
+ console.log("true");
       }
  else
       {
         //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
         document.querySelector(statusTextIncomplete).style.display = "none";
         document.querySelector(statusTextComplete).style.display = "flex";
+        console.log("false");
       }
  
       }
