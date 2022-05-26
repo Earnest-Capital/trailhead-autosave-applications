@@ -275,7 +275,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             document.querySelector(messageResultSelector).innerHTML = 'Saved!';
            
             // status check: product & value proposition status check
-            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","[data-status='incomplete-product-value']","[data-status='complete-product-value']");
+            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","div[data-status='incomplete-product-value']","div[data-status='complete-product-value']");
             
             // status check: traction & metrics
             statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
@@ -368,7 +368,7 @@ setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-le
 // check status per exercise
 
 // status check: product & value proposition
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","[data-status='incomplete-product-value']","[data-status='complete-product-value']");
+statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","div[data-status='incomplete-product-value']","div[data-status='complete-product-value']");
 
 // status check: traction & metrics
 statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
