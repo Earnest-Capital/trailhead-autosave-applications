@@ -115,8 +115,8 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive)
  else
       {
         //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
-        document.querySelectorAll("#title-status-productvalue-incomplete").style.display = "none";
-        document.querySelectorAll("#title-status-productvalue-complete").style.display = "flex";
+        document.querySelector("#title-status-productvalue-incomplete").style.display = "none";
+        document.querySelector("#title-status-productvalue-complete").style.display = "flex";
       }
  
       }
