@@ -108,15 +108,15 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive)
  if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
       {
         //document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
-        document.querySelectorAll("div[data-status='complete-product-value']").style.display = "none";
-        document.querySelectorAll("div[data-status='incomplete-product-value']").style.display = "flex";
+        document.querySelector("#title-status-productvalue-complete").style.display = "none";
+        document.querySelector("#title-status-productvalue-incomplete").style.display = "flex";
  
       }
  else
       {
         //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
-        document.querySelectorAll("div[data-status='incomplete-product-value']").style.display = "none";
-        document.querySelectorAll("div[data-status='complete-product-value']").style.display = "flex";
+        document.querySelectorAll("#title-status-productvalue-incomplete").style.display = "none";
+        document.querySelectorAll("#title-status-productvalue-complete").style.display = "flex";
       }
  
       }
