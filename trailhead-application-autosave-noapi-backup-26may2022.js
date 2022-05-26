@@ -107,16 +107,16 @@ function statusValueProposition(inputTagline, inputBusiness, inputProductLive, s
         
  if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
       {
-        //document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
-        document.querySelectorAll(statusTextComplete).style.display = "none";
-        document.querySelectorAll(statusTextIncomplete).style.display = "flex";
+        document.querySelector(statusTextIncomplete).innerHTML= "[Incomplete]";
+        document.querySelector(statusTextComplete).style.display = "none";
+        document.querySelector(statusTextIncomplete).style.display = "block";
  
       }
  else
       {
-        //document.querySelector(statusTextComplete).innerHTML= "[Complete]";
-        document.querySelectorAll(statusTextIncomplete).style.display = "none";
-        document.querySelectorAll(statusTextComplete).style.display = "flex";
+        document.querySelector(statusTextComplete).innerHTML= "[Complete]";
+        document.querySelector(statusTextIncomplete).style.display = "none";
+        document.querySelector(statusTextComplete).style.display = "block";
       }
  
       }
@@ -275,7 +275,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             document.querySelector(messageResultSelector).innerHTML = 'Saved!';
            
             // status check: product & value proposition status check
-            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","[data-status='incomplete-product-value']","[data-status='complete-product-value']");
+            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
             
             // status check: traction & metrics
             statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
@@ -368,7 +368,7 @@ setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-le
 // check status per exercise
 
 // status check: product & value proposition
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","[data-status='incomplete-product-value']","[data-status='complete-product-value']");
+statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#status-productvalue-incomplete","#status-productvalue-complete");
 
 // status check: traction & metrics
 statusTractionMetrics("#Key-Metrics","#status-tractionmetrics-incomplete","#status-tractionmetrics-complete");
