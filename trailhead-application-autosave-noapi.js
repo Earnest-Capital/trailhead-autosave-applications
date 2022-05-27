@@ -1,7 +1,3 @@
-//hide success and failure messaging on load
-
-document.querySelectorAll(".saved-check").style.display= "none";
-document.querySelectorAll(".text-error").innerHTML = "";
 
 // create function to validate and require plain text field to not be empty
 function validateName(inputText) {
@@ -291,6 +287,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
           if (validateResult !== true) {
               // update error message with validate result
               document.querySelector(messageResultFailure).innerHTML= validateResult;
+              document.querySelector(messageResultFailure).style.display = "flex";
               return
           }
         
@@ -337,6 +334,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
             document.querySelector(messageResultFailure).innerHTML = `Oops, did not save: ${error.message}`;
+            document.querySelector(messageResultFailure).style.display = "flex";
         });
     });
 }
