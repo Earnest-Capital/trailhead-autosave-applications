@@ -1,5 +1,7 @@
-// get form and create variable
-//const autoSaveForm = document.querySelector('[name="wf-form-autosave"]');
+//hide success and failure messaging on load
+
+document.querySelectorAll(".saved-check").style.display= "none";
+document.querySelectorAll(".text-error").innerHTML = "";
 
 // create function to validate and require plain text field to not be empty
 function validateName(inputText) {
