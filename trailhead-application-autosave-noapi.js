@@ -273,12 +273,13 @@ function statusFundraising(inputRaisingCapital, inputRaising, inputRoundProcess,
  
       }
 
-function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webflowField, messageResultSelector) {
+function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webflowField, messageResultSuccess, messageResultFailure) {
     const field = document.querySelector(fieldSelector);
     //console.log(field.value);
 
     field.addEventListener('input', function() {
-        document.querySelector(messageResultSelector).innerHTML = "";
+        document.querySelector(messageResultSuccess).style.display = "none";
+        document.querySelector(messageResultFailure).innerHTML = "";
     });
 
 
@@ -287,7 +288,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
           const validateResult = validateFieldFn(field.value);
           if (validateResult !== true) {
               // update error message with validate result
-              document.querySelector(messageResultSelector).innerHTML= validateResult;
+              document.querySelector(messageResultFailure).innerHTML= validateResult;
               return
           }
         
@@ -307,7 +308,8 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
         updateWebflow(webflowField,field.value)
         .then(function (result) {
             console.log('saved field in Webflow', webflowField, result);
-            document.querySelector(messageResultSelector).innerHTML = 'Saved!';
+            //document.querySelector(messageResultSelector).innerHTML = 'Saved!';
+            document.querySelector(messageResultSuccess).style.display = "block";
            
             // status check: product & value proposition status check
             statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market");
@@ -332,7 +334,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
-            document.querySelector(messageResultSelector).innerHTML = `Oops, did not save: ${error.message}`;
+            document.querySelector(messageResultFailure).innerHTML = `Oops, did not save: ${error.message}`;
         });
     });
 }
@@ -367,7 +369,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
 // set parameters for each input field
 
 // product & value proposition
-setupAutosaveField("#Tagline", validateName, "Tagline","tagline", "#messageresult-tagline");
+setupAutosaveField("#Tagline", validateName, "Tagline","tagline", "#saved-check-tagline", "#error-message-tagline");
 setupAutosaveField("#Business-Model", validateName, "Business Model","business-model", "#messageresult-business-model");
 setupAutosaveField("#demo-screencast-link", validateUrl, "Demo Screencast","demo-screencast", "#messageresult-demo-screencast");
 setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#messageresult-deck-link");
