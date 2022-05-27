@@ -377,9 +377,9 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
 // product & value proposition
 setupAutosaveField("#Tagline", validateName, "Tagline","tagline", "#saved-check-tagline", "#error-message-tagline");
 setupAutosaveField("#website-url-input", validateUrl, "Website","website", "#saved-check-website", "#error-message-website");
-setupAutosaveField("#founder-names", validateUrl, "Founder Names","founder-names", "#saved-check-founder-names", "#error-message-founder-names");
+setupAutosaveField("#founder-names", validateName, "Founder Names","founder-names", "#saved-check-founder-names", "#error-message-founder-names");
 setupAutosaveField("#Business-Model", validateName, "Business Model","business-model", "#saved-check-business-model", "#error-message-business-model");
-setupAutosaveField("#business-description", validateUrl, "Business Description","business-description", "#saved-check-business-description", "#error-message-business-description");
+setupAutosaveField("#business-description", validateName, "Business Description","business-description", "#saved-check-business-description", "#error-message-business-description");
 setupAutosaveField("#demo-screencast-link", validateUrl, "Demo Screencast","demo-screencast", "#saved-check-demo-screencast", "#error-message-demo-screencast");
 setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#saved-check-deck-link", "#error-message-deck-link");
 setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your product live in the market?","is-your-product-live-in-the-market", "#saved-check-is-your-product-live-in-the-market", "#error-message-is-your-product-live-in-the-market");
