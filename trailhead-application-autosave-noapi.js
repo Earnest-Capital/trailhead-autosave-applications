@@ -81,15 +81,21 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
 
 
 // create function: status update - value & proposition
-function statusValueProposition(inputTagline, inputBusiness, inputProductLive)
+function statusValueProposition(inputTagline, inputWebsite, inputFounderNames, inputBusiness, inputBusinessDescription, inputProductLive)
       {
         var fieldTagline = document.querySelector(inputTagline);
+
+        var fieldWebsite = document.querySelector(inputWebsite);
+
+        var fieldFounderNames = document.querySelector(inputFounderNames);
         
         var fieldBusiness = document.querySelector(inputBusiness);
 
+        var fieldBusinessDescription = document.querySelector(inputBusinessDescription);
+
         var fieldProductLive = document.querySelector(inputProductLive);
         
- if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value) 
+ if (!fieldTagline.value || !fieldWebsite.value|| !fieldFounderNames.value|| !fieldBusiness.value|| !fieldBusinessDescription.value || !fieldProductLive.value) 
       {
         
         //titles
@@ -311,7 +317,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             document.querySelector(messageResultSuccess).style.display = "block";
            
             // status check: product & value proposition status check
-            statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market");
+            statusValueProposition("#Tagline", "#website-url-input", "#founder-names","#Business-Model", "#business-description","#Is-your-product-live-in-the-market");
             
             // status check: traction & metrics
             statusTractionMetrics("#Key-Metrics");
@@ -370,42 +376,45 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
 
 // product & value proposition
 setupAutosaveField("#Tagline", validateName, "Tagline","tagline", "#saved-check-tagline", "#error-message-tagline");
-setupAutosaveField("#Business-Model", validateName, "Business Model","business-model", "#messageresult-business-model");
-setupAutosaveField("#demo-screencast-link", validateUrl, "Demo Screencast","demo-screencast", "#messageresult-demo-screencast");
-setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#messageresult-deck-link");
-setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your product live in the market?","is-your-product-live-in-the-market", "#messageresult-is-your-product-live-in-the-market");
-setupAutosaveField("#referrer", null, "Referred by","referred-by", "#messageresult-referred-by");
-setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#messageresult-country-of-incorporation");
+setupAutosaveField("#website-url-input", validateUrl, "Website","website", "#saved-check-website", "#error-message-website");
+setupAutosaveField("#founder-names", validateUrl, "Founder Names","founder-names", "#saved-check-founder-names", "#error-message-founder-names");
+setupAutosaveField("#Business-Model", validateName, "Business Model","business-model", "#saved-check-business-model", "#error-message-business-model");
+setupAutosaveField("#business-description", validateUrl, "Business Description","business-description", "#saved-check-business-description", "#error-message-business-description");
+setupAutosaveField("#demo-screencast-link", validateUrl, "Demo Screencast","demo-screencast", "#saved-check-demo-screencast", "#error-message-demo-screencast");
+setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#saved-check-deck-link", "#error-message-deck-link");
+setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your product live in the market?","is-your-product-live-in-the-market", "#saved-check-is-your-product-live-in-the-market", "#error-message-is-your-product-live-in-the-market");
+setupAutosaveField("#referrer", null, "Referred by","referred-by", "#saved-check-referred-by", "#error-message-referred-by");
+setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#saved-check-country-of-incorporation", "#error-message-country-of-incorporation");
 
 
 // traction & metrics
-setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#messageresult-key-metrics");
+setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#saved-check-key-metrics", "#error-message-key-metrics");
 
 // my team
-setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#messageresult-founder-team-background");
-setupAutosaveField("#Unfair-Advantage", validateName, "Unfair Advantage","unfair-advantage", "#messageresult-unfair-advantage");
-setupAutosaveField("#Links-To-Your-Work", null, "Links to your work","links-to-your-work", "#messageresult-links-to-your-work");
+setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#saved-check-founder-team-background", "#error-message-founder-team-background");
+setupAutosaveField("#Unfair-Advantage", validateName, "Unfair Advantage","unfair-advantage", "#saved-check-unfair-advantage", "#error-message-unfair-advantage");
+setupAutosaveField("#Links-To-Your-Work", null, "Links to your work","links-to-your-work", "#saved-check-links-to-your-work", "#error-message-links-to-your-work");
 
 // pricing & customers
-setupAutosaveField("#Market-Size", null, "Market Size","market-size", "#messageresult-market-size");
-setupAutosaveField("#Average-Revenue-per-Customer", null, "Average Revenue per Customer","average-revenue-per-customer", "#messageresult-average-revenue-per-customer");
-setupAutosaveField("#Pricing-Model", validateName, "Pricing Model","pricing-model", "#messageresult-pricing-model");
-setupAutosaveField("#customer-acquisition-sources", validateName, "Customer Acquisition Sources","customer-acquisition-sources", "#messageresult-customer-acquisition-sources");
+setupAutosaveField("#Market-Size", null, "Market Size","market-size", "#saved-check-market-size", "#error-message-market-size");
+setupAutosaveField("#Average-Revenue-per-Customer", null, "Average Revenue per Customer","average-revenue-per-customer", "#saved-check-average-revenue-per-customer", "#error-message-average-revenue-per-customer");
+setupAutosaveField("#Pricing-Model", validateName, "Pricing Model","pricing-model", "#saved-check-pricing-model", "#error-message-pricing-model");
+setupAutosaveField("#customer-acquisition-sources", validateName, "Customer Acquisition Sources","customer-acquisition-sources", "#saved-check-customer-acquisition-sources", "#error-message-customer-acquisition-sources");
 
 // competition
-setupAutosaveField("#Competition-Positioning", validateName, "Competition & Positioning","competition-positioning", "#messageresult-competition-positioning");
+setupAutosaveField("#Competition-Positioning", validateName, "Competition & Positioning","competition-positioning", "#saved-check-competition-positioning", "#error-message-competition-positioning");
 
 // funraising
-setupAutosaveField("#Why-Rise-Capital", validateName, "Why are you raising capital","why-are-you-raising-capital", "#messageresult-why-are-you-raising-capital");
-setupAutosaveField("#Capital-Raising", validateName, "Capital Raising","capital-raising", "#messageresult-capital-raising");
-setupAutosaveField("#Round-Process", validateName, "Round / Process","round-process", "#messageresult-round-process");
-setupAutosaveField("#Previous-Capital-Raised", validateName, "Previous Capital Raised","previous-capital-raised", "#messageresult-previous-capital-raised");
-setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-legal-name", "#messageresult-company-legal-name");
+setupAutosaveField("#Why-Rise-Capital", validateName, "Why are you raising capital","why-are-you-raising-capital", "#saved-check-why-are-you-raising-capital", "#error-message-why-are-you-raising-capital");
+setupAutosaveField("#Capital-Raising", validateName, "Capital Raising","capital-raising", "#saved-check-capital-raising", "#error-message-capital-raising");
+setupAutosaveField("#Round-Process", validateName, "Round / Process","round-process", "#saved-check-round-process", "#error-message-round-process");
+setupAutosaveField("#Previous-Capital-Raised", validateName, "Previous Capital Raised","previous-capital-raised", "#saved-check-previous-capital-raised", "#error-message-previous-capital-raised");
+setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-legal-name", "#saved-check-company-legal-name", "#error-message-company-legal-name");
 
 // check status per exercise
 
 // status check: product & value proposition
-statusValueProposition("#Tagline","#Business-Model","#Is-your-product-live-in-the-market");
+statusValueProposition("#Tagline", "#website-url-input", "#founder-names","#Business-Model", "#business-description","#Is-your-product-live-in-the-market");
 
 // status check: traction & metrics
 statusTractionMetrics("#Key-Metrics");
