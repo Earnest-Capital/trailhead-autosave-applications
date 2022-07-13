@@ -282,17 +282,18 @@ function statusFundraising(inputRaisingCapital, inputRaising, inputRoundProcess,
 function statusBreakEven(inputBreakEven)
 {
   var fieldBreakEven = document.querySelector(inputBreakEven);
+  console.log(fieldBreakEven.value);
   
   
-if (fieldBreakEven.value === "Yes") 
+if (fieldBreakEven.value == "Yes") 
 {
-  //show the div that contains the burn rate question
+  //hide the div that contains the burn rate question
   document.querySelector("#div-burn-rate").style.display = "none";
 
 }
 else
 {
-   //hide the div that contains the burn rate question
+   //show the div that contains the burn rate question
   document.querySelector("#div-burn-rate").style.display = "flex";
 
 }
