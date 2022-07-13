@@ -287,13 +287,13 @@ function statusBreakEven(inputBreakEven)
 if (fieldBreakEven.value === "Yes") 
 {
   //show the div that contains the burn rate question
-  document.querySelector("#div-burn-rate").style.display = "flex";
+  document.querySelector("#div-burn-rate").style.display = "none";
 
 }
 else
 {
    //hide the div that contains the burn rate question
-  document.querySelector("#div-burn-rate").style.display = "none";
+  document.querySelector("#div-burn-rate").style.display = "flex";
 
 }
 
