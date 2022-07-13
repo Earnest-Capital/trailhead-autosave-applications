@@ -285,16 +285,16 @@ function statusBreakEven(inputBreakEven)
   console.log(fieldBreakEven.value);
   
   
-if (fieldBreakEven.value == "Yes") 
+if (!fieldBreakEven.value == "Yes") 
 {
-  //hide the div that contains the burn rate question
-  document.querySelector("#div-burn-rate").style.display = "none";
+  //show the div that contains the burn rate question
+  document.querySelector("#div-burn-rate").style.display = "flex";
 
 }
 else
 {
-   //show the div that contains the burn rate question
-  document.querySelector("#div-burn-rate").style.display = "flex";
+   //hide the div that contains the burn rate question
+  document.querySelector("#div-burn-rate").style.display = "none";
 
 }
 
