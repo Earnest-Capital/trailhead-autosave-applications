@@ -277,6 +277,28 @@ function statusFundraising(inputRaisingCapital, inputRaising, inputRoundProcess,
  
       }
 
+
+      // create function: status update - fundraising
+function statusBreakEven(inputBreakEven)
+{
+  var fieldBreakEven = document.querySelector(inputBreakEven);
+  
+  
+if (fieldBreakEven.value === "Yes") 
+{
+  //show the div that contains the burn rate question
+  document.querySelector("#div-burn-rate").style.display = "flex";
+
+}
+else
+{
+   //hide the div that contains the burn rate question
+  document.querySelector("#div-burn-rate").style.display = "none";
+
+}
+
+}
+
 function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webflowField, messageResultSuccess, messageResultFailure) {
     const field = document.querySelector(fieldSelector);
     //console.log(field.value);
@@ -336,6 +358,9 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
 
             // status check: submit application
             statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
+
+            // status check: break even
+            statusBreakEven("#break-even");
         })
         .catch(function (error) {
             console.error('did not save field in Webflow', webflowField, error);
@@ -435,3 +460,6 @@ statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Prev
 
 // status check: submit application
 statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
+
+// status check: break even
+statusBreakEven("#break-even");
