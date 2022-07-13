@@ -285,7 +285,7 @@ function statusBreakEven(inputBreakEven)
   console.log(fieldBreakEven.value);
   
   
-if (!fieldBreakEven.value == "Yes") 
+if (!fieldBreakEven.value === "Yes") 
 {
   //show the div that contains the burn rate question
   document.querySelector("#div-burn-rate").style.display = "flex";
