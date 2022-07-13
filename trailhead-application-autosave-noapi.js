@@ -14,7 +14,7 @@ function validateEmail(inputEmail)
   {
     return (true)
   }
-    return 'You have entered an invalid email address! Please fix it'
+    return 'You have entered an invalid email address! Please fix it.'
 }
 
 // create function to verify URL is properly formatted
@@ -27,7 +27,7 @@ function validateUrl(inputUrl)
         }
         else
         {
-          return 'You have entered an invalid url address! Please fix it';
+          return 'You have entered an invalid url address! Please fix it.';
         }
 }
 
@@ -389,6 +389,8 @@ setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation"
 
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#saved-check-key-metrics", "#error-message-key-metrics");
+setupAutosaveField("#break-even", validateName, "Break-Even","break-even", "#saved-check-break-even", "#error-message-break-even");
+setupAutosaveField("#burn-rate", validateName, "Burn Rate","burn-rate", "#saved-check-burn-rate", "#error-message-burn-rate");
 
 // my team
 setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#saved-check-founder-team-background", "#error-message-founder-team-background");
