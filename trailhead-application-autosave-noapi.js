@@ -32,7 +32,7 @@ function validateUrl(inputUrl)
 }
 
 // create function: show/hide submit application button
-function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,inputMetrics, inputTeamBackground, inputUnfairAdvantage, inputPricingModel, inputCustomerSources, inputCompetition, inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital)
+function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,inputMetrics, inputTeamBackground, inputUnfairAdvantage, inputPricingModel, inputCustomerSources, inputCompetition, inputRaisingCapital, inputRaising, inputRoundProcess, inputPreviousCapital, inputBreakEven)
       {
         var fieldTagline = document.querySelector(inputTagline);
         
@@ -59,8 +59,10 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
         var fieldRoundProcess = document.querySelector(inputRoundProcess);
 
         var fieldPreviousCapital = document.querySelector(inputPreviousCapital);
+
+        var fieldBreakEven = document.querySelector(inputBreakEven);
         
- if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value) 
+ if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value || !fieldBreakEven.value) 
       {
        //tasks
        document.querySelector("#status-submit-ready").style.display = "none";
@@ -121,12 +123,13 @@ function statusValueProposition(inputTagline, inputWebsite, inputFounderNames, i
       }
 
       // create function: status update - traction & metrics
-function statusTractionMetrics(inputMetrics)
+function statusTractionMetrics(inputMetrics, inputSelectBreakEven)
 {
   var fieldMetrics = document.querySelector(inputMetrics);
+  var fieldSelectBreakEven = document.querySelector(inputSelectBreakEven);
   
   
-if (!fieldMetrics.value) 
+if (!fieldMetrics.value || !fieldSelectBreakEven.value) 
 {
   //titles
   document.querySelector("#title-status-metrics-complete").style.display = "none";
@@ -278,7 +281,7 @@ function statusFundraising(inputRaisingCapital, inputRaising, inputRoundProcess,
       }
 
 
-      // create function: status update - fundraising
+      // create function: Check if break-even question is yes or no and show additional question "burn rate" if not "yes"
 function statusBreakEven(inputBreakEven)
 {
   var fieldBreakEven = document.querySelector(inputBreakEven);
@@ -343,7 +346,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             statusValueProposition("#Tagline", "#website-url-input", "#founder-names","#Business-Model", "#business-description","#Is-your-product-live-in-the-market");
             
             // status check: traction & metrics
-            statusTractionMetrics("#Key-Metrics");
+            statusTractionMetrics("#Key-Metrics", "#break-even");
 
             // status check: my team
             statusTeam("#Founder-Team-Background","#Unfair-Advantage");
@@ -358,7 +361,7 @@ function setupAutosaveField(fieldSelector, validateFieldFn, airtableField, webfl
             statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
 
             // status check: submit application
-            statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
+            statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised", "#break-even");
 
             // status check: break even
             statusBreakEven("#break-even");
@@ -445,7 +448,7 @@ setupAutosaveField("#Capital-Legal-Name", null, "Company Legal Name","company-le
 statusValueProposition("#Tagline", "#website-url-input", "#founder-names","#Business-Model", "#business-description","#Is-your-product-live-in-the-market");
 
 // status check: traction & metrics
-statusTractionMetrics("#Key-Metrics");
+statusTractionMetrics("#Key-Metrics", "#break-even");
 
 // status check: my team
 statusTeam("#Founder-Team-Background","#Unfair-Advantage");
@@ -460,7 +463,7 @@ statusCompetition("#Competition-Positioning");
 statusFundraising("#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
 
 // status check: submit application
-statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised");
+statusSubmitApplication("#Tagline","#Business-Model","#Is-your-product-live-in-the-market","#Key-Metrics","#Founder-Team-Background","#Unfair-Advantage","#Pricing-Model","#customer-acquisition-sources","#Competition-Positioning","#Why-Rise-Capital","#Capital-Raising","#Round-Process","#Previous-Capital-Raised", "#break-even");
 
 // status check: break even
 statusBreakEven("#break-even");
