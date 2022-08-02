@@ -425,7 +425,7 @@ setupAutosaveField("#deck-link", validateUrl, "Memo/Deck Link","deck-link", "#sa
 setupAutosaveField("#Is-your-product-live-in-the-market", validateName, "Is your product live in the market?","is-your-product-live-in-the-market", "#saved-check-is-your-product-live-in-the-market", "#error-message-is-your-product-live-in-the-market");
 setupAutosaveField("#referrer", null, "Referred by","referred-by", "#saved-check-referred-by", "#error-message-referred-by");
 setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#saved-check-country-of-incorporation", "#error-message-country-of-incorporation");
-setupAutosaveField("#scoutid", null, "Scout ID","scout-id", "#saved-check-scoutid", "#error-message-scoutid");
+setupAutosaveField("#scoutid", null, "Scout ID","scout-id-2", "#saved-check-scoutid", "#error-message-scoutid");
 
 
 // traction & metrics
