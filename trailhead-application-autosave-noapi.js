@@ -3,7 +3,7 @@
 
 function checkBurnRate() {
   
-  if(document.querySelector("#break-even").value === "yes") {
+  if(document.querySelector("#break-even").value === "Yes") {
 return document.querySelector("#break-even").value;
 
   } else {
