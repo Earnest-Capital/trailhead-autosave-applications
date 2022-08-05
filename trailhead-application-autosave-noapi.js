@@ -1,4 +1,19 @@
 
+// function to return values according to break-even and burn rate questions for exercise validation
+
+function checkBurnRate() {
+  
+  if(document.querySelector("#break-even").value === "yes") {
+return document.querySelector("#break-even").value;
+
+  } else {
+
+    return document.querySelector("#burn-rate").value;
+  }
+  
+}
+
+
 // Create function to load all countries
 
 function addCountries(whereto) {
@@ -140,7 +155,7 @@ function statusTractionMetrics(inputMetrics, inputSelectBreakEven)
   var fieldSelectBreakEven = document.querySelector(inputSelectBreakEven);
   
   
-if (!fieldMetrics.value || !fieldSelectBreakEven.value) 
+if (!fieldMetrics.value || !fieldSelectBreakEven.value ||!checkBurnRate()) 
 {
   //titles
   document.querySelector("#title-status-metrics-complete").style.display = "none";
@@ -427,11 +442,11 @@ setupAutosaveField("#referrer", null, "Referred by","referred-by", "#saved-check
 setupAutosaveField("#country-of-incorporation", null, "Country Of Incorporation","country-of-incorporation", "#saved-check-country-of-incorporation", "#error-message-country-of-incorporation");
 setupAutosaveField("#scoutid", null, "Scout ID","scout-id-2", "#saved-check-scoutid", "#error-message-scoutid");
 
-
 // traction & metrics
 setupAutosaveField("#Key-Metrics", validateName, "Key Metrics","key-metrics", "#saved-check-key-metrics", "#error-message-key-metrics");
 setupAutosaveField("#break-even", validateName, "Break-Even","break-even", "#saved-check-break-even", "#error-message-break-even");
 setupAutosaveField("#burn-rate", validateName, "Burn Rate","burn-rate", "#saved-check-burn-rate", "#error-message-burn-rate");
+
 
 // my team
 setupAutosaveField("#Founder-Team-Background", validateName, "Founder & Team Background","founder-team-background", "#saved-check-founder-team-background", "#error-message-founder-team-background");
