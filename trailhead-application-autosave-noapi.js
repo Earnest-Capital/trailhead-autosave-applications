@@ -88,7 +88,7 @@ function statusSubmitApplication(inputTagline, inputBusiness, inputProductLive,i
 
         var fieldBreakEven = document.querySelector(inputBreakEven);
         
- if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value || !fieldBreakEven.value) 
+ if (!fieldTagline.value || !fieldBusiness.value || !fieldProductLive.value || !fieldMetrics.value || !fieldTeamBackground.value || !fieldUnfairAdvantage.value || !fieldPricingModel.value || !fieldCustomerSources.value || !fieldCompetition.value || !fieldRaisingCapital.value || !fieldRaising.value || !fieldRoundProcess.value || !fieldPreviousCapital.value || !fieldBreakEven.value ||!checkBurnRate()) 
       {
        //tasks
        document.querySelector("#status-submit-ready").style.display = "none";
